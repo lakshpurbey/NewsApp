@@ -11,7 +11,19 @@ import SwiftUI
 struct NewsAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NewsListView(
+                viewModel: makeNewsListViewModel()
+            )
         }
     }
+    
+    private func makeNewsListViewModel() -> NewsListViewModel {
+
+            let apiService = NewsAPIService()
+            let repository = NewsRepository(service: apiService)
+            let useCase = FetchNewsUseCase(repository: repository)
+
+            return NewsListViewModel(fetchNewsUseCase: useCase)
+        }
+
 }

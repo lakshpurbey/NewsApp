@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct APIConstants {
-    static let baseURL = "https://newsapi.org/v2/top-headlines"
-    static let apiKey = "YOUR_API_KEY"
-}
-
 final class APIClient {
 
     func request<T: Decodable>(url: URL) async throws -> T {
