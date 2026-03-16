@@ -17,7 +17,13 @@ struct NewsListView: View {
 
             List(viewModel.articles) { article in
 
-                ArticleRowView(article: article)
+                NavigationLink {
+
+                  NewsDetailView(article: article)
+
+                } label: {
+                    ArticleRowView(article: article)
+                }
                     .onAppear {
 
                         if article.id == viewModel.articles.last?.id {

@@ -14,6 +14,7 @@ struct NewsAppApp: App {
             NewsListView(
                 viewModel: makeNewsListViewModel()
             )
+
         }
     }
     
